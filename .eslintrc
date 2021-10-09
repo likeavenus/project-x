@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "object-curly-spacing": ["error", "always"],
+        "no-unused-vars": "error"
+    }
+}
