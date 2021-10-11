@@ -5,9 +5,7 @@ import { CodeEditor } from './containers/CodeEditor';
 const App = () => {
     
     return (
-        <div>
-            <CodeEditor />
-        </div>
+        <CodeEditor />
     )
 }
 

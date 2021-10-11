@@ -27,7 +27,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: isDev ? '[name].css' : '[name].[hash].css',
-            chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
+            chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
         }),
     ],
     module: {
@@ -37,17 +37,21 @@ module.exports = {
                 exclude: /(node_modules)/,
                 use: {
                   loader: 'babel-loader',
-                }
+                },
             },
             {
                 test: /\.module\.s[ac]ss$/i,
                 use: [
-                    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
-                            sourceMap: isDev
+                            modules: {
+                                mode: 'local',
+                                auto: true,
+                                localIdentName: "[name]__[local]--[hash:base64:5]",
+                            },
+                            sourceMap: isDev,
                         }
                     },
                     {
@@ -57,37 +61,7 @@ module.exports = {
                         }
                     },
                 ],
-                // use: [
-                //     MiniCssExtractPlugin.loader,
-                //     {
-                //         loader: "css-loader",
-                //         options: {
-                //           sourceMap: isDev,
-                //           modules: true
-                //         },
-                //     },
-                //     {
-                //         loader: "sass-loader",
-                //         options: {
-                //           sourceMap: isDev,
-                //         },
-                //     },
-                // ],
             },
-            {
-                test: /\.s(a|c)ss$/,
-                exclude: /\.module.(s(a|c)ss)$/,
-                use: [
-                    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: isDev
-                        }
-                    }
-                ]
-            }
         ]
     },
     resolve: {
