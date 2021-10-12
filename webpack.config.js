@@ -8,10 +8,9 @@ const isProd = !isDev;
 module.exports = {
     mode: 'development',
     entry: {
-        app: './src/index.js',
+        app: path.join(__dirname, 'src', 'index.js'),
     },
     output: {
-        clean: true,
         filename: 'main.js',
         path: path.resolve(__dirname, 'build'),
     },
@@ -23,7 +22,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: path.join(__dirname, 'src', './index.html')
         }),
         new MiniCssExtractPlugin({
             filename: isDev ? '[name].css' : '[name].[hash].css',
@@ -37,6 +36,9 @@ module.exports = {
                 exclude: /(node_modules)/,
                 use: {
                   loader: 'babel-loader',
+                  options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react']
+                  }
                 },
             },
             {

@@ -10,11 +10,9 @@ export const CodeEditor = () => {
 
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor; 
-    console.log(editorRef.current)
   }
   
   function showValue() {
-    console.log('alert')
     alert(editorRef.current.getValue());
   }
     return (
@@ -25,6 +23,7 @@ export const CodeEditor = () => {
           defaultLanguage="javascript"
           defaultValue="// some comment"
           onMount={handleEditorDidMount}
+          theme="vs-dark"
         />
       </div>
     )
