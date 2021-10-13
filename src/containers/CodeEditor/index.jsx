@@ -3,6 +3,7 @@ import Editor from "@monaco-editor/react";
 
 import styles from './style.module';
 import { config } from '../../editorConfig';
+
  
 
 export const CodeEditor = () => {
@@ -12,19 +13,26 @@ export const CodeEditor = () => {
     editorRef.current = editor; 
   }
   
-  function showValue() {
-    alert(editorRef.current.getValue());
+  function runCode() {
+    // console.log()
+    eval(editorRef.current.getValue());
   }
     return (
-      <div>
-        <button onClick={showValue}>Show value</button>
-        <Editor
-          height="90vh"
-          defaultLanguage="javascript"
-          defaultValue="// some comment"
-          onMount={handleEditorDidMount}
-          theme="vs-dark"
-        />
+      <div className={styles.editor__component}>
+        <div className={styles.editor__wrap}>
+          <Editor
+            width="800px"
+            height="70vh"
+            defaultLanguage="javascript"
+            defaultValue="// начнём"
+            onMount={handleEditorDidMount}
+            theme="vs-dark"
+            className={styles.editor}
+            options={config}
+          />
+          <button onClick={runCode} className={styles.editor__button}>Запустить</button>
+        </div>
+        
       </div>
     )
 }
