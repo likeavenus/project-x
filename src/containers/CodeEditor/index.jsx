@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
-import { collection, addDoc, getFirestore, getDocs } from "firebase/firestore";
+import { getTasks } from '../../api';
 
 import styles from "./style.module";
 import { config } from "../../editorConfig";
 
 export const CodeEditor = () => {
-  const db = getFirestore();
   const editorRef = useRef(null);
   const [tasks, setTasks] = useState([]);
   const [level, setLevel] = useState(0);
@@ -21,7 +20,7 @@ export const CodeEditor = () => {
     const currentAnswer = eval(editorRef.current.getValue());
     if (currentAnswer === currentTask.answer) {
       alert("Успех");
-      setCurrentTask(tasks[1]);
+      setLevel((prev) => prev += 1);
     }
     if (currentAnswer === undefined) {
       alert("Не забывай вызвать функцию.");
@@ -29,21 +28,18 @@ export const CodeEditor = () => {
   }
 
   useEffect(() => {
-    (async() => {
-      const data = [];
-      const tasksArray = await getDocs(collection(db, "tasks"));
-      tasksArray.forEach((doc) => {
-        data.push(doc.data());
+    getTasks()
+      .then((data) => {
+        setTasks(data);
       })
-      setTasks(data);
-    })();
+      .catch((e) => { throw new Error(e) });
   }, []);
 
   useEffect(() => {
     if (tasks.length) {
       setCurrentTask(tasks[level])
     }
-  }, [tasks]);
+  }, [level, tasks]);
 
 
   return (
@@ -60,7 +56,7 @@ export const CodeEditor = () => {
           value={currentTask ? currentTask.task : ''}
         />
         <button onClick={runCode} className={styles.editor__button}>
-          run
+          run code
         </button>
       </div>
     </div>
