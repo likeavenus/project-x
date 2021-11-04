@@ -19,6 +19,7 @@ module.exports = {
         static: './build',
         hot: true,
         port: 9000,
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({

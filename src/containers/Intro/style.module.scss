@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+
+.intro_text {
+    color: $greenNeonColor;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em $greenNeonColor;
+    font-size: 25px;
+    font-family: $montserrat;
+}

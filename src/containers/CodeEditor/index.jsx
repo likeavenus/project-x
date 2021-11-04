@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { getTasks } from '../../api';
+import { Loading } from '../../components/Loading';
 
 import styles from "./style.module";
 import { config } from "../../editorConfig";
@@ -51,6 +52,7 @@ export const CodeEditor = () => {
           defaultLanguage="javascript"
           onMount={handleEditorDidMount}
           theme="vs-dark"
+          loading={<Loading />}
           className={styles.editor}
           options={config}
           value={currentTask ? currentTask.task : ''}
