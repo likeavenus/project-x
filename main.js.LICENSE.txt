@@ -79,7 +79,11 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./cjs/scheduler.development.js */
 
+/*! ./constants.ts */
+
 /*! ./containers/CodeEditor */
+
+/*! ./containers/Intro */
 
 /*! ./factoryWithTypeCheckers */
 
@@ -92,6 +96,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./style.module */
 
 /*! ./styles.js */
+
+/*! @babel/runtime/helpers/esm/extends */
 
 /*! @firebase/app */
 
@@ -113,6 +119,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! firebase/firestore */
 
+/*! history */
+
 /*! object-assign */
 
 /*! prop-types */
@@ -122,6 +130,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! react-dom */
 
 /*! react-is */
+
+/*! react-router */
+
+/*! react-router-dom */
 
 /*! regenerator-runtime/runtime.js */
 
@@ -157,8 +169,16 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/react/index.js ***!
   \*************************************/
 
+/*!***************************************!*\
+  !*** ./node_modules/history/index.js ***!
+  \***************************************/
+
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/containers/Intro/index.jsx ***!
   \****************************************/
 
 /*!*****************************************!*\
@@ -181,6 +201,14 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/scheduler/tracing.js ***!
   \*******************************************/
 
+/*!*******************************************!*\
+  !*** ./src/containers/Intro/constants.ts ***!
+  \*******************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/react-router/index.js ***!
+  \********************************************/
+
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
   \*********************************************/
@@ -188,6 +216,14 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!*********************************************!*\
   !*** ./src/containers/CodeEditor/index.jsx ***!
   \*********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/react-router-dom/index.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./src/containers/Intro/style.module.scss ***!
+  \************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/prop-types/checkPropTypes.js ***!
@@ -232,6 +268,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
   \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
+  \************************************************************/
 
 /*!************************************************************!*\
   !*** ./node_modules/@firebase/component/dist/index.esm.js ***!
@@ -462,6 +502,28 @@ PERFORMANCE OF THIS SOFTWARE.
  * @return {boolean} True if the event is supported.
  * @internal
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ */
+
+/**
+ * React Router DOM v6.0.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */
+
+/**
+ * React Router v6.0.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
  */
 
 /** @license React v0.20.2
