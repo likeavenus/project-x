@@ -1,0 +1,43 @@
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/containers/CodeEditor/style.module.scss ***!
+  \**********************************************************************************************************************************************************************************************/
+.style-module__editor__component--ggsez {
+  padding: 15px 15px;
+}
+
+.style-module__editor__wrap--reCW6 {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+}
+
+.style-module__editor--vOUqx {
+  border: 1px solid #00cf4f;
+  margin-bottom: 20px;
+}
+
+.style-module__editor__button--VkI2t {
+  padding: 10px 20px;
+  border-radius: 9px;
+  background: transparent;
+  border: 1px solid #00cf4f;
+  color: #00cf4f;
+  text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.3), 0 0 0.45em #00cf4f;
+  font-size: 17px;
+  cursor: pointer;
+  max-width: 150px;
+  margin-left: auto;
+  box-shadow: inset 0 0 0.1em 0 #00cf4f, 0 0 0.1em 0 #00cf4f;
+  transition: all 0.2s ease;
+}
+.style-module__editor__button--VkI2t:hover {
+  box-shadow: inset 0 0 1em 0 #00cf4f, 0 0 1em 0 #00cf4f;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/style.module.scss ***!
+  \************************************************************************************************************************************************************************/
+body {
+  background-color: #1e1e1e;
+}
