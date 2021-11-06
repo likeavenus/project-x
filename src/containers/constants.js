@@ -1,0 +1,1 @@
+export const isFirstTime = JSON.parse(localStorage.getItem('isFirstTime'));

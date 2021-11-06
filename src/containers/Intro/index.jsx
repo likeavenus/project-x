@@ -7,6 +7,15 @@ export const Intro = () => {
     const [introText, setIntroText] = useState('');
     const navigate = useNavigate();
 
+    const isFirstTime = JSON.parse(localStorage.getItem('isFirstTime'));
+
+    useEffect(() => {
+        if (!isFirstTime) {
+            navigate('/editor');
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const printText = useCallback(() => {
         INTRO_TEXT.split('').forEach((letter, index) => {
             setTimeout(() => {

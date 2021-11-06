@@ -1,0 +1,74 @@
+@import "../../variables.scss";
+
+.menu {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #473e3e;
+  z-index: 100;
+  transition: all 0.2s ease;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+
+    .menu__box {
+      width: 180px;
+    }
+  }
+}
+
+.menu__box {
+  background-color: #282727;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.menu__open {
+  width: 50px;
+  height: 50px;
+  background-color: #473e3e;
+  margin-left: auto;
+  display: block;
+  margin-bottom: 10px;
+  color: $greenNeonColor;
+
+  &:hover {
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em $greenNeonColor;;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.show_intro {
+  color: $greenNeonColor;
+  border-bottom: 1px solid #473e3e;
+  padding: 5px;
+  font-size: 13px;
+  width: 100%;
+  text-align: left;
+
+  &:hover {
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em $greenNeonColor;;
+  }
+}
+
+.link {
+  color: $greenNeonColor;
+  border-bottom: 1px solid #473e3e;
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+
+  &:hover {
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em $greenNeonColor;;
+  }
+}

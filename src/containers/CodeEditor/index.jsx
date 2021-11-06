@@ -3,6 +3,7 @@ import Editor from "@monaco-editor/react";
 import { getTasks } from "../../api";
 import { Loading } from "../../components/Loading";
 import { ModalWindow } from "../../components/ModalWindow";
+import { isFirstTime } from "../constants";
 
 import styles from "./style.module";
 import { config } from "../../editorConfig";
@@ -14,7 +15,6 @@ export const CodeEditor = () => {
   const [isOpen, setModalState] = useState(true);
 
   const [currentTask, setCurrentTask] = useState();
-  // const isFirstTime = localStorage.getItem("isFirstTime");
 
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
@@ -56,21 +56,26 @@ export const CodeEditor = () => {
 
   const toggleModalState = useCallback(() => {
     setModalState((prev) => !prev);
+    localStorage.setItem("isFirstTime", false);
   }, []);
 
+  const isFirstTime = JSON.parse(localStorage.getItem('isFirstTime'));
+  
   return (
     <div className={styles.editor__component}>
-      <ModalWindow isOpen={isOpen}>
-        <div className={styles.editor__modal}>
-          <div className={styles.modal__text}>
-            Для решения задачи тебе нужно будет написать функцию в редакторе
-            кода аналогичном <b>Visual Studio Code</b>.
+      {isFirstTime && (
+        <ModalWindow isOpen={isOpen}>
+          <div className={styles.editor__modal}>
+            <div className={styles.modal__text}>
+              Для решения задачи тебе нужно будет написать функцию в редакторе
+              кода аналогичном <b>Visual Studio Code</b>.
+            </div>
+            <button onClick={toggleModalState} className={styles.modal__button}>
+              ладно
+            </button>
           </div>
-          <button onClick={toggleModalState} className={styles.modal__button}>
-            ладно
-          </button>
-        </div>
-      </ModalWindow>
+        </ModalWindow>
+      )}
       <div className={styles.editor__wrap}>
         <Editor
           width="100%"

@@ -1,16 +1,11 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-import { CodeEditor } from "./containers/CodeEditor";
-import { Intro } from "./containers/Intro";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Main } from "./containers/Main";
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Intro />} />
-        <Route path="editor" element={<CodeEditor />} />
-      </Routes>
+      <Main />
     </Router>
   );
 };
