@@ -40,12 +40,12 @@ export const CodeEditor = () => {
         throw new Error(e);
       });
 
-    window.onbeforeunload = function (e) {
-      const text =
-        "Вы действительно хотите покинуть страницу? Вы потеряете текущий код";
-      e.returnValue = text;
-      return text;
-    };
+    // window.onbeforeunload = function (e) {
+    //   const text =
+    //     "Вы действительно хотите покинуть страницу? Вы потеряете текущий код";
+    //   e.returnValue = text;
+    //   return text;
+    // };
   }, []);
 
   useEffect(() => {

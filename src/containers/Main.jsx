@@ -11,9 +11,8 @@ export const Main = () => {
 
   return (
     <>
+      {location.pathname === "/" ? null : <Menu />}
       <div className={styles.app}>
-        {location.pathname === "/" ? null : <Menu />}
-
         <Routes>
           <Route path="/" element={<Intro />} />
           <Route path="editor" element={<CodeEditor />} />

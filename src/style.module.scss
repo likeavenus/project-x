@@ -3,11 +3,12 @@
 body {
     background-color: #1e1e1e;
     margin: 0;
+    overflow: hidden;
+
 }
 
 .app {
-    margin-left: 70px;
-    overflow: hidden;
+    position: relative;
 }
 
 button {
