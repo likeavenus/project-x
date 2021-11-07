@@ -17,11 +17,20 @@ const db = getFirestore();
 
 export const getTasks = async () => {
   const data = [];
-    const tasksArray = await getDocs(collection(db, "tasks"));
-    tasksArray.forEach((doc) => {
-      data.push(doc.data());
-    });
-    return data;
+  const tasksArray = await getDocs(collection(db, "tasks"));
+  tasksArray.forEach((doc) => {
+    data.push(doc.data());
+  });
+  return data;
+};
+
+export const getMessages = async () => {
+  const data = [];
+  const messagesArray = await getDocs(collection(db, "messages"));
+  messagesArray.forEach((doc) => {
+    data.push(doc.data());
+  });
+  return data;
 };
 
 export default {

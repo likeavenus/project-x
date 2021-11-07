@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useLayoutEffect,
   useEffect,
+  useMemo,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
@@ -12,9 +13,11 @@ import styles from "./style.module";
 import SmartPhone from "../../assets/phone.svg";
 import MessagesApp from "../../assets/messages-ios.svg";
 import { TIME_FORMAT, APPS, ESCAPE_KEY } from "./constants";
+import { getMessages } from "../../api";
 
 export const Menu = () => {
   const [isOpen, setMenuState] = useState(false);
+  const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
   const toggleMenu = useCallback(() => {
     setMenuState((prev) => !prev);
@@ -24,11 +27,11 @@ export const Menu = () => {
     setMenuState(false);
   }, []);
 
-  const openIntro = useCallback(() => {
-    localStorage.setItem("isFirstTime", true);
-    closeMenu();
-    navigate("/");
-  }, [closeMenu, navigate]);
+  // const openIntro = useCallback(() => {
+  //   localStorage.setItem("isFirstTime", true);
+  //   closeMenu();
+  //   navigate("/");
+  // }, [closeMenu, navigate]);
 
   const menuClass = isOpen ? `${styles.menu} ${styles.active}` : styles.menu;
   const phoneClass = isOpen ? `${styles.phone} ${styles.active}` : styles.phone;
@@ -66,9 +69,20 @@ export const Menu = () => {
 
   useEffect(() => {
     window.addEventListener("keydown", handleOnEscape);
-
     return () => window.removeEventListener("keydown", handleOnEscape);
   }, [handleOnEscape]);
+
+  useEffect(() => {
+    getMessages()
+      .then((data) => {
+        setMessages(data);
+      })
+      .catch((e) => new Error(e));
+  }, []);
+
+  const unreadMessages = useMemo(() => {
+    return [...messages].filter((item) => item.checked === false);
+  }, [messages]);
 
   return (
     <>
@@ -83,7 +97,7 @@ export const Menu = () => {
             in={!!currentApp}
             mountOnEnter={false}
             unmountOnExit={true}
-            timeout={300}
+            timeout={200}
             classNames={{
               enterActive: styles.active,
               enterDone: styles.done,
@@ -91,16 +105,25 @@ export const Menu = () => {
               exitDone: styles.exit__active,
             }}
           >
-            <>
-              <div className={styles.current__app}></div>
-            </>
+            <div className={styles.apps}>
+              {messages.map((item) => {
+                return (
+                  <div key={item.id} className={styles.message}>
+                    <div className={styles.message__avatar} />
+                    <div className={styles.message__data}>
+                      <div className={styles.message__author}>
+                        {item.author}
+                      </div>
+                      <div className={styles.message__text}>{item.text}</div>
+                    </div>
+                  </div>
+                );
+              })}
+              <button onClick={closeApp} className={styles.app__close}>
+                <span></span>
+              </button>
+            </div>
           </CSSTransition>
-          {!!currentApp && (
-            <button onClick={closeApp} className={styles.app__close}>
-              <span></span>
-            </button>
-          )}
-          <div className={styles.phone__head} />
           <div
             className={
               currentApp
@@ -116,11 +139,12 @@ export const Menu = () => {
               className={`${styles.phone__app}`}
             >
               <MessagesApp />
-              <div className={styles.app__notification}>1</div>
+              {!!unreadMessages.length && (
+                <div className={styles.app__notification}>
+                  {unreadMessages.length}
+                </div>
+              )}
             </button>
-            <button className={`${styles.phone__app}`} />
-            <button className={`${styles.phone__app}`} />
-            <button className={`${styles.phone__app}`} />
           </div>
         </div>
       </div>
