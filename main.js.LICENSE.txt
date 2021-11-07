@@ -21,6 +21,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../../api */
 
+/*! ../../assets/messages-ios.svg */
+
+/*! ../../assets/phone.svg */
+
 /*! ../../components/Loading */
 
 /*! ../../components/ModalWindow */
@@ -33,13 +37,19 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../_virtual/_rollupPluginBabelHelpers.js */
 
+/*! ../components/Menu */
+
 /*! ../config/index.js */
+
+/*! ../constants */
 
 /*! ../hooks/useMount/index.js */
 
 /*! ../hooks/usePrevious/index.js */
 
 /*! ../hooks/useUpdate/index.js */
+
+/*! ../style.module */
 
 /*! ../useMount/index.js */
 
@@ -59,6 +69,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./App.jsx */
 
+/*! ./CodeEditor */
+
 /*! ./DiffEditor.js */
 
 /*! ./DiffEditor/index.js */
@@ -67,7 +79,13 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./Editor/index.js */
 
+/*! ./Intro */
+
 /*! ./MonacoContainer.js */
+
+/*! ./Transition */
+
+/*! ./TransitionGroupContext */
 
 /*! ./api */
 
@@ -83,13 +101,17 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./cjs/scheduler.development.js */
 
+/*! ./config */
+
+/*! ./constants */
+
 /*! ./constants.ts */
 
-/*! ./containers/CodeEditor */
-
-/*! ./containers/Intro */
+/*! ./containers/Main */
 
 /*! ./factoryWithTypeCheckers */
+
+/*! ./hasClass */
 
 /*! ./hooks/useMonaco/index.js */
 
@@ -97,11 +119,19 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./loader/index.js */
 
+/*! ./setPrototypeOf.js */
+
 /*! ./style.module */
 
 /*! ./styles.js */
 
+/*! ./utils/PropTypes */
+
 /*! @babel/runtime/helpers/esm/extends */
+
+/*! @babel/runtime/helpers/esm/inheritsLoose */
+
+/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */
 
 /*! @firebase/app */
 
@@ -118,6 +148,12 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! @monaco-editor/loader */
 
 /*! @monaco-editor/react */
+
+/*! dayjs */
+
+/*! dom-helpers/addClass */
+
+/*! dom-helpers/removeClass */
 
 /*! firebase/app */
 
@@ -138,6 +174,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! react-router */
 
 /*! react-router-dom */
+
+/*! react-transition-group */
 
 /*! regenerator-runtime/runtime.js */
 
@@ -165,16 +203,36 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./src/editorConfig.js ***!
   \*****************************/
 
+/*!******************************!*\
+  !*** ./src/assets/phone.svg ***!
+  \******************************/
+
 /*!*******************************!*\
   !*** ./src/style.module.scss ***!
   \*******************************/
+
+/*!*********************************!*\
+  !*** ./src/containers/Main.jsx ***!
+  \*********************************/
 
 /*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
   \*************************************/
 
+/*!*************************************!*\
+  !*** ./src/assets/messages-ios.svg ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/containers/constants.js ***!
+  \*************************************/
+
 /*!***************************************!*\
   !*** ./node_modules/history/index.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/components/Menu/index.jsx ***!
   \***************************************/
 
 /*!****************************************!*\
@@ -184,6 +242,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!****************************************!*\
   !*** ./src/containers/Intro/index.jsx ***!
   \****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/dayjs/dayjs.min.js ***!
+  \*****************************************/
 
 /*!*****************************************!*\
   !*** ./node_modules/react-dom/index.js ***!
@@ -203,6 +265,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!******************************************!*\
   !*** ./src/components/Loading/index.jsx ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/components/Menu/constants.js ***!
   \******************************************/
 
 /*!*******************************************!*\
@@ -229,6 +295,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./src/components/ModalWindow/index.jsx ***!
   \**********************************************/
 
+/*!***********************************************!*\
+  !*** ./src/components/Menu/style.module.scss ***!
+  \***********************************************/
+
 /*!************************************************!*\
   !*** ./node_modules/react-router-dom/index.js ***!
   \************************************************/
@@ -238,12 +308,24 @@ PERFORMANCE OF THIS SOFTWARE.
   \************************************************/
 
 /*!**************************************************!*\
+  !*** ./node_modules/dom-helpers/esm/addClass.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/dom-helpers/esm/hasClass.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
   !*** ./src/components/Loading/style.module.scss ***!
   \**************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/prop-types/checkPropTypes.js ***!
   \***************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/dom-helpers/esm/removeClass.js ***!
+  \*****************************************************/
 
 /*!*****************************************************!*\
   !*** ./node_modules/firebase/app/dist/index.esm.js ***!
@@ -289,6 +371,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
   \***********************************************************/
 
+/*!***********************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/config.js ***!
+  \***********************************************************/
+
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
   \************************************************************/
@@ -321,6 +407,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/scheduler/cjs/scheduler.development.js ***!
   \*************************************************************/
 
+/*!***************************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/Transition.js ***!
+  \***************************************************************/
+
 /*!****************************************************************!*\
   !*** ./node_modules/@firebase/firestore/dist/index.esm2017.js ***!
   \****************************************************************/
@@ -330,12 +420,24 @@ PERFORMANCE OF THIS SOFTWARE.
   \*****************************************************************/
 
 /*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
   !*** ./node_modules/@monaco-editor/loader/lib/es/utils/curry.js ***!
   \******************************************************************/
 
 /*!******************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/Editor/index.js ***!
   \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/CSSTransition.js ***!
+  \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \*******************************************************************/
 
 /*!*******************************************************************!*\
   !*** ./node_modules/@monaco-editor/loader/lib/es/config/index.js ***!
@@ -351,6 +453,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!********************************************************************!*\
   !*** ./node_modules/@monaco-editor/loader/lib/es/utils/compose.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/utils/PropTypes.js ***!
   \********************************************************************/
 
 /*!*********************************************************************!*\
@@ -405,6 +511,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/@monaco-editor/react/lib/es/hooks/useUpdate/index.js ***!
   \***************************************************************************/
 
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/TransitionGroupContext.js ***!
+  \***************************************************************************/
+
 /*!****************************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/MonacoContainer/styles.js ***!
   \****************************************************************************/
@@ -412,6 +522,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!*****************************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/hooks/usePrevious/index.js ***!
   \*****************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \*********************************************************************************/
 
 /*!*************************************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/MonacoContainer/MonacoContainer.js ***!
