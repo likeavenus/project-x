@@ -1,3 +1,4 @@
+
 export const TIME_FORMAT = 'HH:mm';
 
 export const APPS = [
@@ -8,3 +9,4 @@ export const APPS = [
 ];
 
 export const ESCAPE_KEY = 'Escape';
+

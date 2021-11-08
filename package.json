@@ -42,10 +42,12 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.3.1",
+    "@reduxjs/toolkit": "^1.6.2",
     "dayjs": "^1.10.7",
     "firebase": "^9.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.0",
     "react-transition-group": "^4.4.2"
   }

@@ -4,28 +4,33 @@ import React, {
   useLayoutEffect,
   useEffect,
   useMemo,
-} from "react";
-import { useNavigate } from "react-router-dom";
-import dayjs from "dayjs";
-import { CSSTransition } from "react-transition-group";
+} from 'react';
+import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
+import { CSSTransition } from 'react-transition-group';
+import { useSelector, useDispatch } from 'react-redux';
 
-import styles from "./style.module";
-import SmartPhone from "../../assets/phone.svg";
-import MessagesApp from "../../assets/messages-ios.svg";
-import { TIME_FORMAT, APPS, ESCAPE_KEY } from "./constants";
-import { getMessages } from "../../api";
+import styles from './style.module';
+import SmartPhone from '../../assets/phone.svg';
+import MessagesApp from '../../assets/messages-ios.svg';
+import { TIME_FORMAT, APPS, ESCAPE_KEY } from './constants';
+import { getMessages } from '../../api';  
+import { toggle, close } from './menuSlice';
 
 export const Menu = () => {
-  const [isOpen, setMenuState] = useState(false);
+  const menu = useSelector(state => state.menu.value);
+  const dispatch = useDispatch();
+
   const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
   const toggleMenu = useCallback(() => {
-    setMenuState((prev) => !prev);
-  }, []);
+    // setMenuState((prev) => !prev);
+    dispatch(toggle());
+  }, [dispatch]);
 
   const closeMenu = useCallback(() => {
-    setMenuState(false);
-  }, []);
+    dispatch(close());
+  }, [dispatch]);
 
   // const openIntro = useCallback(() => {
   //   localStorage.setItem("isFirstTime", true);
@@ -33,8 +38,8 @@ export const Menu = () => {
   //   navigate("/");
   // }, [closeMenu, navigate]);
 
-  const menuClass = isOpen ? `${styles.menu} ${styles.active}` : styles.menu;
-  const phoneClass = isOpen ? `${styles.phone} ${styles.active}` : styles.phone;
+  const menuClass = menu ? `${styles.menu} ${styles.active}` : styles.menu;
+  const phoneClass = menu ? `${styles.phone} ${styles.active}` : styles.phone;
 
   let currentTime = dayjs().format(TIME_FORMAT);
   const [time, setTime] = useState(currentTime);
@@ -68,8 +73,8 @@ export const Menu = () => {
   );
 
   useEffect(() => {
-    window.addEventListener("keydown", handleOnEscape);
-    return () => window.removeEventListener("keydown", handleOnEscape);
+    window.addEventListener('keydown', handleOnEscape);
+    return () => window.removeEventListener('keydown', handleOnEscape);
   }, [handleOnEscape]);
 
   useEffect(() => {

@@ -12,6 +12,7 @@
     },
     "rules": {
         "object-curly-spacing": ["error", "always"],
-        "no-unused-vars": "error"
+        "no-unused-vars": "error",
+        "quotes": [2, "single", { "avoidEscape": true }]
     }
 }
