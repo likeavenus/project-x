@@ -81,11 +81,11 @@
   
     &.active:before {
       content: '';
-      width: 5px;
-      height: 5px;
+      width: 8px;
+      height: 8px;
       position: absolute;
       top: 3px;
-      left: -2px;
+      left: -7px;
       border-radius: 50%;
       background-color: blue;
     }

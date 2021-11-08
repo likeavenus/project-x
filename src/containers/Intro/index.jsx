@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import styles from "./style.module";
+import styles from './style.module';
 import { INTRO_TEXT } from './constants.ts';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,9 +10,10 @@ export const Intro = () => {
     const isFirstTime = JSON.parse(localStorage.getItem('isFirstTime'));
 
     useEffect(() => {
-        if (!isFirstTime) {
-            navigate('/editor');
+        if (!isFirstTime && isFirstTime !== null) {
+            return navigate('/editor');
         }
+        localStorage.setItem('isFirstTime', true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

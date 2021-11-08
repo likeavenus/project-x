@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Editor from "@monaco-editor/react";
-import { getTasks } from "../../api";
-import { Loading } from "../../components/Loading";
-import { ModalWindow } from "../../components/ModalWindow";
-import { isFirstTime } from "../constants";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Editor from '@monaco-editor/react';
+import { getTasks } from '../../api';
+import { Loading } from '../../components/Loading';
+import { ModalWindow } from '../../components/ModalWindow';
 
-import styles from "./style.module";
-import { config } from "../../editorConfig";
+import styles from './style.module';
+import { config } from '../../editorConfig';
 
 export const CodeEditor = () => {
   const editorRef = useRef(null);
@@ -23,11 +22,11 @@ export const CodeEditor = () => {
   function runCode() {
     const currentAnswer = eval(editorRef.current.getValue());
     if (currentAnswer === currentTask.answer) {
-      alert("Успех");
+      alert('Успех');
       setLevel((prev) => prev + 1);
     }
     if (currentAnswer === undefined) {
-      alert("Не забывай вызвать функцию.");
+      alert('Не забывай вызвать функцию.');
     }
   }
 
@@ -56,7 +55,7 @@ export const CodeEditor = () => {
 
   const toggleModalState = useCallback(() => {
     setModalState((prev) => !prev);
-    localStorage.setItem("isFirstTime", false);
+    localStorage.setItem('isFirstTime', false);
   }, []);
 
   const isFirstTime = JSON.parse(localStorage.getItem('isFirstTime'));
@@ -86,7 +85,7 @@ export const CodeEditor = () => {
           loading={<Loading />}
           className={styles.editor}
           options={config}
-          value={currentTask ? currentTask.task : ""}
+          value={currentTask ? currentTask.task : ''}
         />
         <button onClick={runCode} className={styles.editor__button}>
           run code

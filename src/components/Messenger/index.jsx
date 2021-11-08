@@ -43,7 +43,7 @@ export const Messenger = ({ currentApp, messages, closeApp }) => {
                     ? `${styles.message} ${styles.active}`
                     : styles.message
                 }
-                onClick={() => dispatch(setMessageChecked(item))}
+                onClick={setMessageChecked(item)}
               >
                 <div className={styles.message__avatar} />
                 <div className={styles.message__data}>

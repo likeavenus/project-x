@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, useStore } from 'react-redux';
 
 import styles from './style.module';
 import SmartPhone from '../../assets/phone.svg';
@@ -20,6 +20,8 @@ import { fetchMessages } from '../Messenger/messengerSlice';
 export const Menu = () => {
   const menu = useSelector(state => state.menu.value);
   const dispatch = useDispatch();
+  const store = useStore();
+  console.log(store.getState());
 
   const navigate = useNavigate();
   const toggleMenu = useCallback(() => {
@@ -76,8 +78,6 @@ export const Menu = () => {
   }, [handleOnEscape]);
   const messengerData = useSelector((state) => state.messenger);
 
-  console.log(messengerData.messages);
-
   useEffect(() => {
       dispatch(fetchMessages())
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,6 +90,8 @@ export const Menu = () => {
     return [];
   }, [messengerData.messages]);
 
+  const memoizedMessages = useMemo(() => messengerData.messages, [messengerData.messages]);
+
   return (
     <>
       <div onClick={closeMenu} className={menuClass}></div>
@@ -100,7 +102,7 @@ export const Menu = () => {
         <div className={styles.phone__wrap}>
           <Messenger
             currentApp={currentApp}
-            messages={messengerData.messages}
+            messages={memoizedMessages}
             closeApp={closeApp}
           />
           <div
