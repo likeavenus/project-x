@@ -33,15 +33,21 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../Loading/Loading.js */
 
+/*! ../Messenger */
+
+/*! ../Messenger/messengerSlice */
+
 /*! ../MonacoContainer/index.js */
 
 /*! ../_virtual/_rollupPluginBabelHelpers.js */
 
+/*! ../components/Context */
+
 /*! ../components/Menu */
 
-/*! ../config/index.js */
+/*! ../components/connectAdvanced */
 
-/*! ../constants */
+/*! ../config/index.js */
 
 /*! ../hooks/useMount/index.js */
 
@@ -49,9 +55,15 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../hooks/useUpdate/index.js */
 
+/*! ../store */
+
 /*! ../style.module */
 
 /*! ../useMount/index.js */
+
+/*! ../utils/Subscription */
+
+/*! ../utils/bindActionCreators */
 
 /*! ../utils/compose.js */
 
@@ -65,11 +77,21 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../utils/makeCancelable.js */
 
+/*! ../utils/shallowEqual */
+
+/*! ../utils/useIsomorphicLayoutEffect */
+
+/*! ../utils/verifyPlainObject */
+
+/*! ../utils/warning */
+
 /*! ../validators/index.js */
 
 /*! ./App.jsx */
 
 /*! ./CodeEditor */
+
+/*! ./Context */
 
 /*! ./DiffEditor.js */
 
@@ -89,6 +111,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./api */
 
+/*! ./batch */
+
 /*! ./checkPropTypes */
 
 /*! ./cjs/react-dom.development.js */
@@ -101,7 +125,19 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./cjs/scheduler.development.js */
 
+/*! ./components/Context */
+
+/*! ./components/Menu/menuSlice */
+
+/*! ./components/Messenger/messengerSlice */
+
+/*! ./components/Provider */
+
+/*! ./components/connectAdvanced */
+
 /*! ./config */
+
+/*! ./connect/connect */
 
 /*! ./constants */
 
@@ -109,15 +145,41 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./containers/Main */
 
+/*! ./defaultMemoize */
+
+/*! ./defineProperty.js */
+
+/*! ./exports */
+
 /*! ./factoryWithTypeCheckers */
 
 /*! ./hasClass */
 
+/*! ./hooks/useDispatch */
+
 /*! ./hooks/useMonaco/index.js */
+
+/*! ./hooks/useSelector */
+
+/*! ./hooks/useStore */
+
+/*! ./isPlainObject */
 
 /*! ./lib/ReactPropTypesSecret */
 
 /*! ./loader/index.js */
+
+/*! ./mapDispatchToProps */
+
+/*! ./mapStateToProps */
+
+/*! ./menuSlice */
+
+/*! ./mergeProps */
+
+/*! ./messengerSlice */
+
+/*! ./selectorFactory */
 
 /*! ./setPrototypeOf.js */
 
@@ -125,11 +187,29 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./styles.js */
 
+/*! ./useReduxContext */
+
+/*! ./useStore */
+
 /*! ./utils/PropTypes */
+
+/*! ./utils/batch */
+
+/*! ./utils/reactBatchedUpdates */
+
+/*! ./utils/shallowEqual */
+
+/*! ./verifySubselectors */
+
+/*! ./warning */
+
+/*! ./wrapMapToProps */
 
 /*! @babel/runtime/helpers/esm/extends */
 
 /*! @babel/runtime/helpers/esm/inheritsLoose */
+
+/*! @babel/runtime/helpers/esm/objectSpread2 */
 
 /*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */
 
@@ -149,6 +229,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! @monaco-editor/react */
 
+/*! @reduxjs/toolkit */
+
 /*! dayjs */
 
 /*! dom-helpers/addClass */
@@ -161,6 +243,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! history */
 
+/*! hoist-non-react-statics */
+
+/*! immer */
+
 /*! object-assign */
 
 /*! prop-types */
@@ -171,13 +257,21 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! react-is */
 
+/*! react-redux */
+
 /*! react-router */
 
 /*! react-router-dom */
 
 /*! react-transition-group */
 
+/*! redux */
+
+/*! redux-thunk */
+
 /*! regenerator-runtime/runtime.js */
+
+/*! reselect */
 
 /*! scheduler */
 
@@ -197,6 +291,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!**********************!*\
   !*** ./src/index.js ***!
+  \**********************/
+
+/*!**********************!*\
+  !*** ./src/store.js ***!
   \**********************/
 
 /*!*****************************!*\
@@ -223,10 +321,6 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./src/assets/messages-ios.svg ***!
   \*************************************/
 
-/*!*************************************!*\
-  !*** ./src/containers/constants.js ***!
-  \*************************************/
-
 /*!***************************************!*\
   !*** ./node_modules/history/index.js ***!
   \***************************************/
@@ -237,6 +331,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/redux/es/redux.js ***!
   \****************************************/
 
 /*!****************************************!*\
@@ -271,6 +369,14 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./src/components/Menu/constants.js ***!
   \******************************************/
 
+/*!******************************************!*\
+  !*** ./src/components/Menu/menuSlice.js ***!
+  \******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/reselect/es/index.js ***!
+  \*******************************************/
+
 /*!*******************************************!*\
   !*** ./node_modules/scheduler/tracing.js ***!
   \*******************************************/
@@ -283,6 +389,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/react-router/index.js ***!
   \********************************************/
 
+/*!********************************************!*\
+  !*** ./src/components/Messenger/index.jsx ***!
+  \********************************************/
+
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
   \*********************************************/
@@ -292,12 +402,28 @@ PERFORMANCE OF THIS SOFTWARE.
   \*********************************************/
 
 /*!**********************************************!*\
+  !*** ./node_modules/immer/dist/immer.esm.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/react-redux/es/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/redux-thunk/es/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
   !*** ./src/components/ModalWindow/index.jsx ***!
   \**********************************************/
 
 /*!***********************************************!*\
   !*** ./src/components/Menu/style.module.scss ***!
   \***********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/react-redux/es/exports.js ***!
+  \************************************************/
 
 /*!************************************************!*\
   !*** ./node_modules/react-router-dom/index.js ***!
@@ -323,6 +449,22 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/prop-types/checkPropTypes.js ***!
   \***************************************************/
 
+/*!****************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/batch.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/reselect/es/defaultMemoize.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./src/components/Messenger/messengerSlice.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./src/components/Messenger/style.module.scss ***!
+  \****************************************************/
+
 /*!*****************************************************!*\
   !*** ./node_modules/dom-helpers/esm/removeClass.js ***!
   \*****************************************************/
@@ -344,8 +486,20 @@ PERFORMANCE OF THIS SOFTWARE.
   \*****************************************************/
 
 /*!******************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/warning.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
   !*** ./src/components/ModalWindow/style.module.scss ***!
   \******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useStore.js ***!
+  \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/connect.js ***!
+  \********************************************************/
 
 /*!********************************************************!*\
   !*** ./node_modules/state-local/lib/es/state-local.js ***!
@@ -353,6 +507,14 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!**********************************************************!*\
   !*** ./node_modules/@firebase/app/dist/index.esm2017.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useDispatch.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useSelector.js ***!
   \**********************************************************/
 
 /*!***********************************************************!*\
@@ -369,6 +531,22 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/components/Context.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mergeProps.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/Subscription.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/shallowEqual.js ***!
   \***********************************************************/
 
 /*!***********************************************************!*\
@@ -391,6 +569,14 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
   \************************************************************/
 
+/*!************************************************************!*\
+  !*** ./node_modules/react-redux/es/components/Provider.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/isPlainObject.js ***!
+  \************************************************************/
+
 /*!*************************************************************!*\
   !*** ./node_modules/@firebase/logger/dist/index.esm2017.js ***!
   \*************************************************************/
@@ -407,6 +593,14 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/scheduler/cjs/scheduler.development.js ***!
   \*************************************************************/
 
+/*!**************************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useReduxContext.js ***!
+  \**************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/wrapMapToProps.js ***!
+  \***************************************************************/
+
 /*!***************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/Transition.js ***!
   \***************************************************************/
@@ -415,12 +609,40 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/@firebase/firestore/dist/index.esm2017.js ***!
   \****************************************************************/
 
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mapStateToProps.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/selectorFactory.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/verifyPlainObject.js ***!
+  \****************************************************************/
+
 /*!*****************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/utils/index.js ***!
   \*****************************************************************/
 
+/*!*****************************************************************!*\
+  !*** ./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/bindActionCreators.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-redux/node_modules/react-is/index.js ***!
+  \*****************************************************************/
+
 /*!******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js ***!
   \******************************************************************/
 
 /*!******************************************************************!*\
@@ -432,8 +654,16 @@ PERFORMANCE OF THIS SOFTWARE.
   \******************************************************************/
 
 /*!******************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/reactBatchedUpdates.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/CSSTransition.js ***!
   \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \*******************************************************************/
 
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
@@ -449,6 +679,18 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!*******************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/Editor/Editor.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/components/connectAdvanced.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mapDispatchToProps.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/verifySubselectors.js ***!
   \*******************************************************************/
 
 /*!********************************************************************!*\
@@ -482,6 +724,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!***********************************************************************!*\
   !*** ./node_modules/@monaco-editor/loader/lib/es/validators/index.js ***!
   \***********************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js ***!
+  \************************************************************************/
 
 /*!*************************************************************************!*\
   !*** ./node_modules/@firebase/webchannel-wrapper/dist/index.esm2017.js ***!
@@ -526,6 +772,14 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!*********************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
   \*********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
+  \**********************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/react-redux/node_modules/react-is/cjs/react-is.development.js ***!
+  \************************************************************************************/
 
 /*!*************************************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/MonacoContainer/MonacoContainer.js ***!
@@ -689,6 +943,15 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /** @license React v17.0.2
  * react-dom.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react-is.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
