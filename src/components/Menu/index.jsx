@@ -7,24 +7,22 @@ import React, {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
-import { CSSTransition } from 'react-transition-group';
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './style.module';
 import SmartPhone from '../../assets/phone.svg';
 import MessagesApp from '../../assets/messages-ios.svg';
 import { TIME_FORMAT, APPS, ESCAPE_KEY } from './constants';
-import { getMessages } from '../../api';  
 import { toggle, close } from './menuSlice';
+import { Messenger } from '../Messenger';
+import { fetchMessages } from '../Messenger/messengerSlice';
 
 export const Menu = () => {
   const menu = useSelector(state => state.menu.value);
   const dispatch = useDispatch();
 
-  const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
   const toggleMenu = useCallback(() => {
-    // setMenuState((prev) => !prev);
     dispatch(toggle());
   }, [dispatch]);
 
@@ -76,18 +74,18 @@ export const Menu = () => {
     window.addEventListener('keydown', handleOnEscape);
     return () => window.removeEventListener('keydown', handleOnEscape);
   }, [handleOnEscape]);
+  const messengerData = useSelector((state) => state.messenger);
+
+  console.log(messengerData);
 
   useEffect(() => {
-    getMessages()
-      .then((data) => {
-        setMessages(data);
-      })
-      .catch((e) => new Error(e));
+      dispatch(fetchMessages())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const unreadMessages = useMemo(() => {
-    return [...messages].filter((item) => item.checked === false);
-  }, [messages]);
+    return [...messengerData.messages].filter((item) => item.checked === false);
+  }, [messengerData.messages]);
 
   return (
     <>
@@ -97,38 +95,11 @@ export const Menu = () => {
       </button>
       <div className={phoneClass}>
         <div className={styles.phone__wrap}>
-          <CSSTransition
-            key="open-app"
-            in={!!currentApp}
-            mountOnEnter={false}
-            unmountOnExit={true}
-            timeout={200}
-            classNames={{
-              enterActive: styles.active,
-              enterDone: styles.done,
-              exitActive: styles.exit,
-              exitDone: styles.exit__active,
-            }}
-          >
-            <div className={styles.apps}>
-              {messages.map((item) => {
-                return (
-                  <div key={item.id} className={styles.message}>
-                    <div className={styles.message__avatar} />
-                    <div className={styles.message__data}>
-                      <div className={styles.message__author}>
-                        {item.author}
-                      </div>
-                      <div className={styles.message__text}>{item.text}</div>
-                    </div>
-                  </div>
-                );
-              })}
-              <button onClick={closeApp} className={styles.app__close}>
-                <span></span>
-              </button>
-            </div>
-          </CSSTransition>
+          <Messenger
+            currentApp={currentApp}
+            messages={messengerData.messages}
+            closeApp={closeApp}
+          />
           <div
             className={
               currentApp
