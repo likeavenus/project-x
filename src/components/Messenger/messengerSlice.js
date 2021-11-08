@@ -1,10 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getMessages } from '../../api';
+import { getMessages, setMessageById } from '../../api';
 
-export const fetchMessages = createAsyncThunk('messages/setMessages', async () => {
+export const fetchMessages = createAsyncThunk('messages/getMessages', async () => {
     const response = await getMessages();
     return response;
-})
+});
+
+export const setMessage = createAsyncThunk('message/setMessageById', async (id) => {
+    await setMessageById(id);
+    const response = await getMessages();
+    return response;
+});
+
 export const messengerSlice = createSlice({
     name: 'messenger',
     initialState: {
@@ -29,14 +36,21 @@ export const messengerSlice = createSlice({
             }
         }),
         builder.addCase(fetchMessages.pending, (state) => {
-             return state = {
+            return state = {
                 messages: [],
                 status: 'loading',
+                error: null,
+            }
+        }),
+        builder.addCase(setMessage.fulfilled, (state, action) => {
+            return state = {
+                messages: action.payload,
+                status: 'idle',
                 error: null,
             }
         })
     }
 });
 
-export const { setMessages } = messengerSlice.actions;
+// export const { setMessages, setMessageById } = messengerSlice.actions;
 export default messengerSlice.reducer;

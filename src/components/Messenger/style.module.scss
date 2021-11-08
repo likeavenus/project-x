@@ -76,8 +76,19 @@
     align-items: center;
     margin-bottom: 5px;
     width: 169px;
+    position: relative;
+    cursor: pointer;
   
-    
+    &.active:before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      top: 3px;
+      left: -2px;
+      border-radius: 50%;
+      background-color: blue;
+    }
   
     &:not(:first-child) .message__data {
       border-bottom: 1px solid rgb(128 128 128 / 23%);

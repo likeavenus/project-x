@@ -76,7 +76,7 @@ export const Menu = () => {
   }, [handleOnEscape]);
   const messengerData = useSelector((state) => state.messenger);
 
-  console.log(messengerData);
+  console.log(messengerData.messages);
 
   useEffect(() => {
       dispatch(fetchMessages())
@@ -84,7 +84,10 @@ export const Menu = () => {
   }, []);
 
   const unreadMessages = useMemo(() => {
-    return [...messengerData.messages].filter((item) => item.checked === false);
+    if (messengerData.messages && messengerData.messages.length) {
+      return [...messengerData.messages].filter((item) => item.checked === false);
+    }
+    return [];
   }, [messengerData.messages]);
 
   return (
