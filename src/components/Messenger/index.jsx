@@ -28,9 +28,7 @@ export const Messenger = ({ currentApp, messages, closeApp }) => {
       <CSSTransition
         key="open-app"
         in={!!currentApp}
-        // appear
-        mountOnEnter={false}
-        unmountOnExit={true}
+        appear
         timeout={200}
         classNames={{
           enterActive: styles.active,
@@ -72,7 +70,6 @@ export const Messenger = ({ currentApp, messages, closeApp }) => {
               })}
           </div>
           <Message isMessageOpened={isMessageOpened} />
-
           <button onClick={closeApp} className={styles.app__close}>
             <span></span>
           </button>

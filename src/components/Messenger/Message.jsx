@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { useSelector, useDispatch, useStore } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { closeMessage } from './messengerSlice';
 
 import styles from './style.module';
@@ -12,8 +12,6 @@ export const Message = ({ isMessageOpened }) => {
   const closeChat = useCallback(() => {
     dispatch(closeMessage());
   }, [dispatch]);
-
-  console.log(useStore().getState().messenger.currentMessage);
 
   return (
     <CSSTransition
@@ -29,31 +27,26 @@ export const Message = ({ isMessageOpened }) => {
       }}
     >
       <div className={styles.currentMessage}>
-        {currentMessage && (
-          <>
-            <div className={styles.chat__head}>
-              <div className={`${styles.message__avatar} ${styles.chat}`} />
-              <p className={`${styles.message__author} ${styles.chat}`}>
-                {currentMessage.author}
-              </p>
-            </div>
-            <div className={styles.currentMessage__chat}>
-              {currentMessage.chat.map((item) => {
-                return (
-                  <div className={styles.chat__message} key={item.id}>
-                    {item.text}
-                  </div>
-                );
-              })}
-            </div>
-            <button
-              onClick={closeChat}
-              className={styles.currentMessage__close}
-            >
-              🡠
-            </button>
-          </>
-        )}
+        <>
+          <div className={styles.chat__head}>
+            <div className={`${styles.message__avatar} ${styles.chat}`} />
+            <p className={`${styles.message__author} ${styles.chat}`}>
+              {currentMessage?.author}
+            </p>
+          </div>
+          <div className={styles.currentMessage__chat}>
+            {currentMessage?.chat.map((item) => {
+              return (
+                <div className={styles.chat__message} key={item.id}>
+                  {item.text}
+                </div>
+              );
+            })}
+          </div>
+          <button onClick={closeChat} className={styles.currentMessage__close}>
+            🡠
+          </button>
+        </>
       </div>
     </CSSTransition>
   );
