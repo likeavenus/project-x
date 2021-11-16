@@ -20,7 +20,8 @@ export const CodeEditor = () => {
   }
 
   function runCode() {
-    console.log(editorRef.current.getValue())
+    // console.log(editorRef.current.getValue())
+    // console.log(editorRef.getLineContent(1));
     const currentAnswer = eval(editorRef.current.getValue());
     if (currentAnswer === currentTask.answer) {
       alert('Успех');
@@ -78,7 +79,7 @@ export const CodeEditor = () => {
       )}
       <div className={styles.editor__wrap}>
         <Editor
-          width="65%"
+          width="75%"
           height="60vh"
           defaultLanguage="javascript"
           onMount={handleEditorDidMount}

@@ -2,14 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getMessages, setMessageById } from '../../api';
 
 export const fetchMessages = createAsyncThunk('messages/getMessages', async () => {
-    const response = await getMessages();
-    return response;
+    return await getMessages();
 });
 
 export const setMessage = createAsyncThunk('message/setMessageById', async (id) => {
     await setMessageById(id);
-    const response = await getMessages();
-    return response;
+    return await getMessages();
 });
 
 export const messengerSlice = createSlice({

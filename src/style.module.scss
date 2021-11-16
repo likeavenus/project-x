@@ -4,7 +4,7 @@ body {
     background-color: #1e1e1e;
     margin: 0;
     overflow: hidden;
-
+    font-family: $montserrat;
 }
 
 .app {
@@ -16,8 +16,8 @@ button {
     background-color: transparent;
     border: none;
     color: white;
-    font-family: $montserrat;
     transition: all .15s ease;
+    font-family: $montserrat;
 }
 
 a {
@@ -25,7 +25,10 @@ a {
     background-color: transparent;
     border: none;
     color: white;
-    font-family: $montserrat;
     text-decoration: none;
     transition: all .15s ease;
+}
+
+h1,h2,h3 {
+    margin: 0;
 }
