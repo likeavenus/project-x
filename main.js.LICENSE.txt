@@ -89,6 +89,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./App.jsx */
 
+/*! ./Auth */
+
+/*! ./Auth/RequredAuth */
+
 /*! ./CodeEditor */
 
 /*! ./Context */
@@ -112,6 +116,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./TransitionGroupContext */
 
 /*! ./api */
+
+/*! ./authSlice */
 
 /*! ./batch */
 
@@ -145,6 +151,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ./constants.ts */
 
+/*! ./containers/Auth/authSlice */
+
 /*! ./containers/Main */
 
 /*! ./defaultMemoize */
@@ -164,6 +172,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./hooks/useSelector */
 
 /*! ./hooks/useStore */
+
+/*! ./index-238d6fa9.js */
 
 /*! ./isPlainObject */
 
@@ -188,6 +198,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./style.module */
 
 /*! ./styles.js */
+
+/*! ./useAuth */
 
 /*! ./useReduxContext */
 
@@ -217,6 +229,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! @firebase/app */
 
+/*! @firebase/auth */
+
 /*! @firebase/component */
 
 /*! @firebase/firestore */
@@ -240,6 +254,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! dom-helpers/removeClass */
 
 /*! firebase/app */
+
+/*! firebase/auth */
 
 /*! firebase/firestore */
 
@@ -331,6 +347,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./src/components/Menu/index.jsx ***!
   \***************************************/
 
+/*!***************************************!*\
+  !*** ./src/containers/Auth/index.jsx ***!
+  \***************************************/
+
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
   \****************************************/
@@ -359,6 +379,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/tslib/tslib.es6.js ***!
   \*****************************************/
 
+/*!*****************************************!*\
+  !*** ./src/containers/Auth/useAuth.jsx ***!
+  \*****************************************/
+
 /*!******************************************!*\
   !*** ./node_modules/prop-types/index.js ***!
   \******************************************/
@@ -373,6 +397,14 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!******************************************!*\
   !*** ./src/components/Menu/menuSlice.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/containers/Auth/authSlice.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/containers/Auth/constants.js ***!
   \******************************************/
 
 /*!*******************************************!*\
@@ -397,6 +429,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/containers/Auth/RequredAuth.jsx ***!
   \*********************************************/
 
 /*!*********************************************!*\
@@ -425,6 +461,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!***********************************************!*\
   !*** ./src/components/Menu/style.module.scss ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./src/containers/Auth/style.module.scss ***!
   \***********************************************/
 
 /*!************************************************!*\
@@ -492,6 +532,10 @@ PERFORMANCE OF THIS SOFTWARE.
   \*****************************************************/
 
 /*!******************************************************!*\
+  !*** ./node_modules/firebase/auth/dist/index.esm.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
   !*** ./node_modules/react-redux/es/utils/warning.js ***!
   \******************************************************/
 
@@ -522,6 +566,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!**********************************************************!*\
   !*** ./node_modules/react-redux/es/hooks/useSelector.js ***!
   \**********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/@firebase/auth/dist/esm2017/index.js ***!
+  \***********************************************************/
 
 /*!***********************************************************!*\
   !*** ./node_modules/@firebase/util/dist/index.esm2017.js ***!
@@ -700,6 +748,10 @@ PERFORMANCE OF THIS SOFTWARE.
   \*******************************************************************/
 
 /*!********************************************************************!*\
+  !*** ./node_modules/@firebase/auth/dist/esm2017/index-238d6fa9.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
   !*** ./node_modules/@monaco-editor/loader/lib/es/utils/compose.js ***!
   \********************************************************************/
 
@@ -853,6 +905,23 @@ PERFORMANCE OF THIS SOFTWARE.
 /**
  * @license
  * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @license
+ * Copyright 2020 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
