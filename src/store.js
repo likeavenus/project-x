@@ -10,10 +10,11 @@ export default configureStore({
       messenger: messengerReducer,
       auth: authReducer,
   },
-  middleware: (getDefaultMiddleware) => 
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: ['auth/signIn/fulfilled'],
-      },
-    })
+  // middleware: (getDefaultMiddleware) => 
+  //   getDefaultMiddleware({
+  //     serializableCheck: {
+  //       // ignoredActions: ['auth/signIn/fulfilled'],
+  //       // ignoredPaths: ['auth.proactiveRefresh', 'auth.auth']
+  //     },
+  //   })
 });

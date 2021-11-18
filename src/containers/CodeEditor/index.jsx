@@ -79,7 +79,7 @@ export const CodeEditor = () => {
       )}
       <div className={styles.editor__wrap}>
         <Editor
-          width="75%"
+          width="95%"
           height="60vh"
           defaultLanguage="javascript"
           onMount={handleEditorDidMount}

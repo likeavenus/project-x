@@ -1,16 +1,20 @@
 import React, { createContext } from 'react';
-import { useSelector, useDispatch, useStore } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { signIn } from './authSlice';
+import { signIn, registration } from './authSlice';
 
 const authContext = createContext();
 
 export const useAuth = () => {
-  const authState = useSelector((state) => state.auth);
+  const authState = useSelector((state) => state.auth.accessToken);
   const dispatch = useDispatch();
   return {
+    authState,
     login(auth, email, password) {
       return dispatch(signIn({ auth, email, password }));
+    },
+    registration(auth, email, password) {
+      return dispatch(registration({ auth, email, password }));
     },
     logout() {},
   };

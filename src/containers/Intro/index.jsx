@@ -11,7 +11,7 @@ export const Intro = () => {
 
     useEffect(() => {
         if (!isFirstTime && isFirstTime !== null) {
-            return navigate('/editor');
+            return;
         }
         localStorage.setItem('isFirstTime', true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
