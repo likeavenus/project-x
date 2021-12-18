@@ -27,8 +27,7 @@
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em $greenNeonColor;
     font-size: 17px;
     cursor: pointer;
-    max-width: 150px;
-    // margin-left: auto;
+    max-width: 120px;
     box-shadow: inset 0 0 0.1em 0 $greenNeonColor, 0 0 0.1em 0 $greenNeonColor;
     transition: all .2s ease;
 
@@ -56,7 +55,6 @@
     padding: 5px 15px;
     border-radius: 10px;
     color: $greenNeonColor;
-    letter-spacing: 3px;
     font-size: 17px;
     text-align: center;
     border-color: transparent;
