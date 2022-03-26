@@ -44,7 +44,7 @@ export const Message = ({ isMessageOpened }) => {
             })}
           </div>
           <button onClick={closeChat} className={styles.currentMessage__close}>
-            🡠
+            Назад
           </button>
         </>
       </div>

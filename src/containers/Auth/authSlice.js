@@ -33,6 +33,7 @@ export const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(signIn.fulfilled, (_, action) => {
+            console.log('AUTH DATA: ', action.payload)
             return { 
                 error: null, 
                 accessToken: action.payload.accessToken,

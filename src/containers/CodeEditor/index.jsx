@@ -6,6 +6,8 @@ import { ModalWindow } from '../../components/ModalWindow';
 
 import styles from './style.module';
 import { config } from '../../editorConfig';
+import { initialState } from './constants';
+import { TaskDescription } from './TaskDescription';
 
 export const CodeEditor = () => {
   const editorRef = useRef(null);
@@ -14,21 +16,24 @@ export const CodeEditor = () => {
   const [isOpen, setModalState] = useState(true);
 
   const [currentTask, setCurrentTask] = useState();
+  const [code, setCode] = useState();
+  const [srcDoc, setSrcDoc] = useState('');
+
 
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
+    setCode(initialState);
   }
-
   const runCode = useCallback(() => {
-    const currentAnswer = eval(editorRef.current.getValue());
+    let result = new Function(`return ${code}`);
+
+    const currentAnswer = result()();
     if (currentAnswer === currentTask.answer) {
-      alert('Успех');
-      setLevel((prev) => prev + 1);
+          alert('Успех');
+          setLevel((prev) => prev + 1);
     }
-    if (currentAnswer === undefined) {
-      // alert('Не забывай вызвать функцию.');
-    }
-  }, [currentTask?.answer]);
+    // let result = new Function(`module.exports = ${code}`);
+  }, [code, currentTask?.answer]);
 
   useEffect(() => {
     getTasks()
@@ -57,11 +62,9 @@ export const CodeEditor = () => {
     setModalState((prev) => !prev);
   }, []);
 
-  function handleEditorChange(value, event) {
-    // console.log('here is the current model value:', value);
+  function handleEditorChange(value) {
+    setCode(value);
   }
-
-  
   return (
     <div className={styles.editor__component}>
       <ModalWindow isOpen={isOpen}>
@@ -77,7 +80,7 @@ export const CodeEditor = () => {
       </ModalWindow>
       <div className={styles.editor__wrap}>
         <Editor
-          width="95%"
+          width="100%"
           height="60vh"
           defaultLanguage="javascript"
           onMount={handleEditorDidMount}
@@ -86,12 +89,14 @@ export const CodeEditor = () => {
           loading={<Loading />}
           className={styles.editor}
           options={config}
-          value={currentTask ? currentTask.task : ''}
+          value={code}
+          defaultValue={code}
         />
         <button onClick={runCode} className={styles.editor__button}>
           Run
         </button>
       </div>
+      <TaskDescription />
     </div>
   );
 };

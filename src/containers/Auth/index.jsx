@@ -21,6 +21,8 @@ export const Auth = () => {
   const { login, registration } = useAuth();
   const [error, setError] = useState(null);
 
+  console.log(useStore().getState());
+
   const handleOnInputChange = useCallback((e) => {
     if (e.target.name === 'email') {
       return setEmail(e.target.value);
@@ -29,24 +31,24 @@ export const Auth = () => {
   }, []);
 
   const handleOnSubmit = useCallback(() => {
-    if (email.length > 2 && password.length > 2)  {
+    if (email.length > 2 && password.length > 2) {
       if (authState === AUTH_STATE.REGISTRATION) {
         registration(auth, email, password)
           .then((userCredential) => {
             if (!userCredential.error) {
-              navigate('/editor')
+              navigate('/editor');
             } else {
-              console.log(userCredential.error)
+              console.log(userCredential.error);
             }
           })
-          .catch((err) => console.error(err))
+          .catch((err) => console.error(err));
       }
       if (authState === AUTH_STATE.AUTHENTICATION) {
         login(auth, email, password)
           .then((userCredential) => {
             if (!userCredential.error) {
               setError(null);
-              navigate('/editor')
+              navigate('/editor');
             } else {
               if (userCredential.error.code === ERROR_CODES.NOT_FOUND) {
                 setError({
@@ -56,21 +58,27 @@ export const Auth = () => {
               }
             }
           })
-          .catch((err) => console.error(err))
+          .catch((err) => console.error(err));
       }
     }
   }, [auth, email, login, navigate, password, registration, authState]);
 
-  const handleChangeAuthState = useCallback((newState) => () => {
-    setError(null);
-    setAuthState(newState);
-  }, []);
+  const handleChangeAuthState = useCallback(
+    (newState) => () => {
+      setError(null);
+      setAuthState(newState);
+    },
+    [],
+  );
 
-  const handleOnEnter = useCallback((e) => {
-    if (e.code === 'Enter') {
-      handleOnSubmit();
-    }
-  }, [handleOnSubmit])
+  const handleOnEnter = useCallback(
+    (e) => {
+      if (e.code === 'Enter') {
+        handleOnSubmit();
+      }
+    },
+    [handleOnSubmit],
+  );
 
   useEffect(() => {
     window.addEventListener('keydown', handleOnEnter);
@@ -100,13 +108,23 @@ export const Auth = () => {
           type="password"
           className={`${styles.auth__input} ${styles.auth__password}`}
         />
-        {authState ===  AUTH_STATE.REGISTRATION ? (
-          <p className={styles.auth__text}>Уже есть аккаунт? <button onClick={handleChangeAuthState(AUTH_STATE.AUTHENTICATION)}>Войти</button></p>
+        {authState === AUTH_STATE.REGISTRATION ? (
+          <p className={styles.auth__text}>
+            Уже есть аккаунт?{' '}
+            <button onClick={handleChangeAuthState(AUTH_STATE.AUTHENTICATION)}>
+              Войти
+            </button>
+          </p>
         ) : (
-          <p className={styles.auth__text}>Нет аккаунта? <button onClick={handleChangeAuthState(AUTH_STATE.REGISTRATION)}>Зарегистрироваться</button></p>
+          <p className={styles.auth__text}>
+            Нет аккаунта?{' '}
+            <button onClick={handleChangeAuthState(AUTH_STATE.REGISTRATION)}>
+              Зарегистрироваться
+            </button>
+          </p>
         )}
         {error && <p className={styles.error__message}>{error.errorMessage}</p>}
-        
+
         <button onClick={handleOnSubmit} className={styles.auth__button}>
           Отправить
         </button>

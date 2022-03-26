@@ -1,8 +1,12 @@
 @import '../../variables.scss';
 
 .editor__component {
-    padding: 15px 15px;
+    padding: 15px;
     margin-left: 70px;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 0 10px;
 }
 
 .editor__wrap {
@@ -63,4 +67,11 @@
     border: 1px solid $greenNeonColor;
     display: block;
     margin-left: auto;
+}
+
+.description {
+    padding: 10px;
+    box-sizing: border-box; 
+    border: 1px solid gray;
+    // width: 50%;
 }

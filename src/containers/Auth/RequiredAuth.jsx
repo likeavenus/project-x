@@ -4,7 +4,8 @@ import { useAuth } from './useAuth';
 
 export const RequireAuth = ({ children }) => {
     const { authState } = useAuth();
-    return authState
-      ? children 
-      : <Navigate to="/auth" replace />;
+    return children
+    // return authState
+    //   ? children 
+    //   : <Navigate to="/auth" replace />;
   }

@@ -7,7 +7,7 @@ import { Auth } from './Auth';
 import store from '../store';
 import { Provider } from 'react-redux';
 
-import { RequireAuth } from './Auth/RequredAuth';
+import { RequireAuth } from './Auth/RequiredAuth';
 
 import styles from '../style.module';
 
