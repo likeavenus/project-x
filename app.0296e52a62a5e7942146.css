@@ -1,0 +1,586 @@
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/components/Menu/style.module.scss ***!
+  \****************************************************************************************************************************************************************************************/
+.style-module__menu--RXJDT {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  z-index: -10;
+  transition: all 0.3s ease;
+}
+.style-module__menu--RXJDT.style-module__active--jEADi {
+  opacity: 1;
+  z-index: 100;
+}
+
+.style-module__menu__open--_WlTt {
+  display: block;
+  color: #00cf4f;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  z-index: 100;
+}
+
+.style-module__phone__icon--kTjYS {
+  fill: #fff;
+  width: 70px;
+  height: 70px;
+  transition: all 0.3s ease;
+}
+.style-module__phone__icon--kTjYS:hover {
+  fill: #00cf4f;
+}
+
+.style-module__phone--_CvdP {
+  width: 216px;
+  height: 444px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 100%);
+  transition: all 0.3s ease;
+  background-color: #1e1e1e;
+}
+.style-module__phone--_CvdP.style-module__active--jEADi {
+  transform: translate(-50%, -50%);
+}
+
+.style-module__phone__wrap--JDAaG {
+  width: 94.5%;
+  height: 97.5%;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  border-radius: 25px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  background-image: url(a535626fd4023fb6f0f8.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.style-module__phone__head--CZ4bg {
+  width: 105px;
+  height: 16px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  border: 1px solid #fff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top: none;
+}
+
+.style-module__time__box--YngLX {
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  left: 17px;
+  top: 5px;
+  z-index: 200;
+  transition: all 0.3s ease;
+}
+.style-module__time__box--YngLX.style-module__active--jEADi {
+  color: #000;
+}
+
+.style-module__app_panel--FoYhs {
+  width: 183px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  border: 1px solid #b5b5b5cc;
+  align-items: center;
+  padding: 0 7px;
+  box-sizing: border-box;
+}
+
+.style-module__phone__app--MwM62 {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.style-module__phone__app--MwM62 svg {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.style-module__phone__app--MwM62:hover svg {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.style-module__app__notification--DC7Lb {
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+}
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/components/Messenger/style.module.scss ***!
+  \*********************************************************************************************************************************************************************************************/
+.style-module__app__view--VupmD {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(-34%, 43%) scale(0);
+  background: #fff;
+  border-radius: 23px;
+  transition: all 0.22s ease;
+  z-index: -10;
+  padding: 30px 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.style-module__app__view--VupmD.style-module__active--HIQW2 {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  transform: translate(0%, 0%) scale(1);
+}
+.style-module__app__view--VupmD.style-module__done--Ke1_u {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  transform: translate(0%, 0%) scale(1);
+}
+.style-module__app__view--VupmD.style-module__exit--HSCJG {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  transform: translate(-34%, 43%) scale(0);
+}
+.style-module__app__view--VupmD.style-module__exit__active--CZGes {
+  transform: translate(-34%, 43%) scale(0);
+  z-index: -10;
+}
+
+.style-module__messages--UTUbY {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+.style-module__messages--UTUbY.style-module__active--HIQW2 {
+  transform: translateX(-100%);
+}
+
+.style-module__currentMessage--_0MoI {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 25px 10px;
+  transform: translateX(100%);
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+.style-module__currentMessage--_0MoI.style-module__active--HIQW2 {
+  transform: translateX(0);
+}
+.style-module__currentMessage--_0MoI.style-module__done--Ke1_u {
+  transform: translateX(0);
+}
+.style-module__currentMessage--_0MoI.style-module__exit--HSCJG {
+  transform: translateX(100%);
+}
+.style-module__currentMessage--_0MoI.style-module__exit__active--CZGes {
+  transform: translateX(100%);
+}
+
+.style-module__chat__head--RhwA9 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.style-module__chat__message--vfPpX {
+  max-width: 80%;
+  border-radius: 15px;
+  padding: 5px 8px;
+  background: rgba(232, 232, 232, 0.7);
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  margin-right: auto;
+}
+.style-module__chat__message--vfPpX:not(:last-child) {
+  margin-bottom: 10px;
+}
+.style-module__chat__message--vfPpX.style-module__my__message--__jSK {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.style-module__currentMessage__close--fECKl {
+  position: absolute;
+  left: 10px;
+  top: 30px;
+  color: blue;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.style-module__currentMessage__close--fECKl:hover {
+  border-bottom: 1px solid blue;
+}
+
+.style-module__app__close--B3g5r {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 10px 0;
+}
+.style-module__app__close--B3g5r:hover span {
+  background-color: #d8d7d7;
+}
+.style-module__app__close--B3g5r span {
+  display: block;
+  background-color: gray;
+  height: 3px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.style-module__message--_v5O6 {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  width: 169px;
+  position: relative;
+  cursor: pointer;
+}
+.style-module__message--_v5O6.style-module__active--HIQW2:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 3px;
+  left: -7px;
+  border-radius: 50%;
+  background-color: blue;
+}
+.style-module__message--_v5O6:not(:first-child) .style-module__message__data--_x4eq {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.23);
+}
+
+.style-module__message__data--_x4eq {
+  padding: 5px 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.23);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.style-module__message__avatar--UFLbK {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: gray;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid gray;
+}
+.style-module__message__avatar--UFLbK:before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+}
+.style-module__message__avatar--UFLbK:after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 20px;
+  background-color: #fff;
+}
+.style-module__message__avatar--UFLbK.style-module__chat--EOiiE {
+  margin: 0 auto;
+}
+
+.style-module__message__author--xT5rZ {
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: 100%;
+}
+.style-module__message__author--xT5rZ.style-module__chat--EOiiE {
+  text-align: center;
+}
+
+.style-module__message__text--k4P_w {
+  font-size: 11px;
+  color: gray;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: 129px;
+}
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/components/Loading/style.module.scss ***!
+  \*******************************************************************************************************************************************************************************************/
+.style-module__loading--sZkip {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 40px;
+  color: #00cf4f;
+  border: 3px solid #00cf4f;
+  box-shadow: inset 0 0 0.5em 0 #00cf4f, 0 0 0.5em 0 #00cf4f;
+}
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/components/ModalWindow/style.module.scss ***!
+  \***********************************************************************************************************************************************************************************************/
+.style-module__modal--_v84K {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/containers/CodeEditor/style.module.scss ***!
+  \**********************************************************************************************************************************************************************************************/
+.style-module__editor__component--ggsez {
+  padding: 15px;
+  margin-left: 70px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 0 10px;
+}
+
+.style-module__editor__wrap--reCW6 {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.style-module__editor--vOUqx {
+  border: 1px solid #00cf4f;
+  margin-bottom: 20px;
+}
+
+.style-module__editor__button--VkI2t {
+  padding: 10px 20px;
+  border-radius: 9px;
+  background: transparent;
+  border: 1px solid #00cf4f;
+  color: #00cf4f;
+  text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.3), 0 0 0.45em #00cf4f;
+  font-size: 17px;
+  cursor: pointer;
+  max-width: 120px;
+  box-shadow: inset 0 0 0.1em 0 #00cf4f, 0 0 0.1em 0 #00cf4f;
+  transition: all 0.2s ease;
+}
+.style-module__editor__button--VkI2t:hover {
+  box-shadow: inset 0 0 1em 0 #00cf4f, 0 0 1em 0 #00cf4f;
+}
+
+.style-module__editor__modal--_moiH {
+  width: 70%;
+  background: #424141;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.style-module__modal__text--_0CfM {
+  color: #00cf4f;
+  letter-spacing: 1px;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.style-module__modal__button--cd8ap {
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #00cf4f;
+  font-size: 17px;
+  text-align: center;
+  border-color: transparent;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid #00cf4f;
+  display: block;
+  margin-left: auto;
+}
+
+.style-module__description--_cNfo {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/containers/Intro/style.module.scss ***!
+  \*****************************************************************************************************************************************************************************************/
+.style-module__intro_text--VJAR9 {
+  color: #00cf4f;
+  text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.3), 0 0 0.45em #00cf4f;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/containers/Auth/style.module.scss ***!
+  \****************************************************************************************************************************************************************************************/
+.style-module__auth--N27qC {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.style-module__auth__container--iF9bQ {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.style-module__auth__title--YsYym {
+  color: #fff;
+  font-size: 19px;
+  margin-bottom: 16px;
+}
+
+.style-module__auth__input--FP5B5 {
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #fff;
+}
+.style-module__auth__input--FP5B5.style-module__auth__login--X4PgP {
+  margin-bottom: 10px;
+}
+.style-module__auth__input--FP5B5.style-module__auth__password--eY4iK {
+  margin-bottom: 20px;
+}
+
+.style-module__auth__button--_17vA {
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: bold;
+}
+.style-module__auth__button--_17vA:hover {
+  color: #00cf4f;
+}
+
+.style-module__auth__text--bRl4m {
+  color: #fff;
+}
+
+.style-module__error__message--TdYXG {
+  color: red;
+  font-size: 15px;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/style.module.scss ***!
+  \************************************************************************************************************************************************************************/
+body {
+  background-color: #1e1e1e;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.style-module__app--UnCjA {
+  position: relative;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+  transition: all 0.15s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
