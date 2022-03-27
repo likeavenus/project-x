@@ -13,15 +13,14 @@ import { AUTH_STATE, ERROR_CODES } from './constants';
 import styles from './style.module';
 
 export const Auth = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('rafael@list.ru');
+  const [password, setPassword] = useState('rafael7');
   const [authState, setAuthState] = useState(AUTH_STATE.AUTHENTICATION);
   const navigate = useNavigate();
   const auth = getAuth();
-  const { login, registration } = useAuth();
+  const { login, registration, accessToken } = useAuth();
   const [error, setError] = useState(null);
-
-  console.log(useStore().getState());
+  // console.log(useStore().getState());
 
   const handleOnInputChange = useCallback((e) => {
     if (e.target.name === 'email') {
@@ -29,7 +28,7 @@ export const Auth = () => {
     }
     setPassword(e.target.value);
   }, []);
-
+  console.log('auth accessToken: ', accessToken)
   const handleOnSubmit = useCallback(() => {
     if (email.length > 2 && password.length > 2) {
       if (authState === AUTH_STATE.REGISTRATION) {
@@ -47,8 +46,11 @@ export const Auth = () => {
         login(auth, email, password)
           .then((userCredential) => {
             if (!userCredential.error) {
+              console.log('userCredential: ', userCredential)
               setError(null);
               navigate('/editor');
+              // TODO: CHE ZA HUETA
+              console.log('accessToken: ', accessToken)
             } else {
               if (userCredential.error.code === ERROR_CODES.NOT_FOUND) {
                 setError({
@@ -61,7 +63,7 @@ export const Auth = () => {
           .catch((err) => console.error(err));
       }
     }
-  }, [auth, email, login, navigate, password, registration, authState]);
+  }, [accessToken, auth, authState, email, login, navigate, password, registration]);
 
   const handleChangeAuthState = useCallback(
     (newState) => () => {

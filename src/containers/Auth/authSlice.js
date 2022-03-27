@@ -1,72 +1,83 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from '@firebase/auth';
 
-export const signIn = createAsyncThunk('auth/signIn', async ({ auth, email, password }) => {
-    const res = await signInWithEmailAndPassword(auth, email, password);
-    return {
-        accessToken: res.user.accessToken,
-        email: res.user.email,
-        uid: res.user.uid,
-    };
-});
+export const signIn = createAsyncThunk(
+  'auth/signIn',
+  async ({ auth, email, password }) => {
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
+    const { accessToken, displayName, photoUrl } = user;
+    return { accessToken, displayName, email, photoUrl };
+  },
+);
 
-export const registration = createAsyncThunk('auth/registration', async ({ auth, email, password }) => {
+export const registration = createAsyncThunk(
+  'auth/registration',
+  async ({ auth, email, password }) => {
     const res = await createUserWithEmailAndPassword(auth, email, password);
-    return {
-        accessToken: res.user.accessToken,
-        email: res.user.email,
-        uid: res.user.uid,
+    return res.user;
+  },
+);
+
+const user = JSON.parse(localStorage.getItem('user'));
+const initialState = user
+  ? {
+      ...user,
+      isLoggedIn: true,
     }
-});
-
-const initialState = {
-    accessToken: null,
-    email: '',
-    uid: '',
-    error: null,
-};
-
+  : {
+      accessToken: null,
+      displayName: null,
+      email: null,
+      photoUrl: null,
+      isLoggedIn: false,
+    };
 
 export const authSlice = createSlice({
-    name: 'auth',
-    initialState: initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(signIn.fulfilled, (_, action) => {
-            console.log('AUTH DATA: ', action.payload)
-            return { 
-                error: null, 
-                accessToken: action.payload.accessToken,
-                email: action.payload.email,
-                uid: action.payload.uid
-             }
-        }),
-        builder.addCase(signIn.rejected, (_, action) => {
-            return { 
-                accessToken: null,
-                email: '',
-                uid: '',
-                error: { ...action.error }
-             };
-        }),
-        builder.addCase(registration.fulfilled, (_, action) => {
-            return { 
-                error: null,
-                accessToken: action.payload.accessToken,
-                email: action.payload.email,
-                uid: action.payload.uid
-            }
-        }),
-        builder.addCase(registration.rejected, (_, action) => {
-            console.log('rejected: ', action)
-            return { 
-                accessToken: null,
-                email: '',
-                uid: '',
-                error: { ...action.error }
-             };
-        })
-    }
+  name: 'user',
+  initialState: initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(signIn.fulfilled, (_, action) => {
+      console.log('AUTH DATA: ', action.payload);
+      const { accessToken, displayName, email, photoUrl } = action.payload;
+      return {
+        accessToken,
+        displayName,
+        email,
+        photoUrl,
+        isLoggedIn: true,
+      };
+    }),
+      builder.addCase(signIn.rejected, (_, action) => {
+        return {
+          accessToken: null,
+          displayName: null,
+          email: null,
+          photoUrl: null,
+          isLoggedIn: false,
+        };
+      }),
+      builder.addCase(registration.fulfilled, (_, action) => {
+        const { accessToken, displayName, email, photoUrl } = action.payload;
+        return {
+          accessToken,
+          displayName,
+          email,
+          photoUrl,
+          isLoggedIn: true,
+        };
+      }),
+      builder.addCase(registration.rejected, (_, action) => {
+        console.log('rejected: ', action);
+        return {
+          user: null,
+          isLoggedIn: false,
+        };
+      });
+  },
 });
 
 // export const { getAuthReducer } = authSlice.actions;

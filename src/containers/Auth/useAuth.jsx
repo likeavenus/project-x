@@ -6,10 +6,11 @@ import { signIn, registration } from './authSlice';
 const authContext = createContext();
 
 export const useAuth = () => {
-  const authState = useSelector((state) => state.auth.accessToken);
+  const accessToken = useSelector((state) => state.user.accessToken);
   const dispatch = useDispatch();
+  console.log('useAuth accessToken: ', accessToken)
   return {
-    authState,
+    accessToken,
     login(auth, email, password) {
       return dispatch(signIn({ auth, email, password }));
     },
@@ -22,6 +23,5 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const auth = useAuth();
-
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 };

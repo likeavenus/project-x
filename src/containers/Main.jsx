@@ -7,7 +7,7 @@ import { Auth } from './Auth';
 import store from '../store';
 import { Provider } from 'react-redux';
 
-import { RequireAuth } from './Auth/RequiredAuth';
+import { RequiredAuth } from './Auth/RequiredAuth';
 
 import styles from '../style.module';
 
@@ -22,10 +22,10 @@ export const Main = () => {
           <Route
             path="/editor"
             element={
-              <RequireAuth>
+              <RequiredAuth>
                 <Menu />
                 <CodeEditor />
-              </RequireAuth>
+              </RequiredAuth>
             }
           />
         </Routes>

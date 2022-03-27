@@ -7,7 +7,6 @@ import { ModalWindow } from '../../components/ModalWindow';
 import styles from './style.module';
 import { config } from '../../editorConfig';
 import { initialState } from './constants';
-import { TaskDescription } from './TaskDescription';
 
 export const CodeEditor = () => {
   const editorRef = useRef(null);
@@ -17,8 +16,6 @@ export const CodeEditor = () => {
 
   const [currentTask, setCurrentTask] = useState();
   const [code, setCode] = useState();
-  const [srcDoc, setSrcDoc] = useState('');
-
 
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
@@ -64,6 +61,9 @@ export const CodeEditor = () => {
 
   function handleEditorChange(value) {
     setCode(value);
+    if (!value) {
+      setCode(initialState);
+    }
   }
   return (
     <div className={styles.editor__component}>
@@ -96,7 +96,6 @@ export const CodeEditor = () => {
           Run
         </button>
       </div>
-      <TaskDescription />
     </div>
   );
 };

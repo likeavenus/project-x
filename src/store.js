@@ -8,7 +8,7 @@ export default configureStore({
   reducer: {
       menu: menuReducer,
       messenger: messengerReducer,
-      auth: authReducer,
+      user: authReducer,
   },
   // middleware: (getDefaultMiddleware) => 
   //   getDefaultMiddleware({
