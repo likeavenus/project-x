@@ -31,6 +31,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../../editorConfig */
 
+/*! ../../utils */
+
 /*! ../Loading/Loading.js */
 
 /*! ../Messenger */
@@ -110,8 +112,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./Message */
 
 /*! ./MonacoContainer.js */
-
-/*! ./TaskDescription */
 
 /*! ./Transition */
 
@@ -275,6 +275,8 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! react-dom */
 
+/*! react-firebase-hooks/auth */
+
 /*! react-is */
 
 /*! react-redux */
@@ -315,6 +317,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!**********************!*\
   !*** ./src/store.js ***!
+  \**********************/
+
+/*!**********************!*\
+  !*** ./src/utils.js ***!
   \**********************/
 
 /*!*****************************!*\
@@ -553,10 +559,6 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/react-redux/es/hooks/useStore.js ***!
   \*******************************************************/
 
-/*!*******************************************************!*\
-  !*** ./src/containers/CodeEditor/TaskDescription.jsx ***!
-  \*******************************************************/
-
 /*!********************************************************!*\
   !*** ./node_modules/react-redux/es/connect/connect.js ***!
   \********************************************************/
@@ -715,6 +717,10 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*!******************************************************************!*\
   !*** ./node_modules/@monaco-editor/react/lib/es/Editor/index.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/react-firebase-hooks/auth/dist/index.esm.js ***!
   \******************************************************************/
 
 /*!******************************************************************!*\
