@@ -16,24 +16,19 @@ export const signIn = createAsyncThunk(
 export const registration = createAsyncThunk(
   'auth/registration',
   async ({ auth, email, password }) => {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    return res.user;
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    const { accessToken, displayName, photoUrl } = user;
+    return { accessToken, displayName, email, photoUrl };
   },
 );
 
-const user = JSON.parse(localStorage.getItem('user'));
-const initialState = user
-  ? {
-      ...user,
-      isLoggedIn: true,
-    }
-  : {
-      accessToken: null,
-      displayName: null,
-      email: null,
-      photoUrl: null,
-      isLoggedIn: false,
-    };
+const initialState = {
+  accessToken: null,
+  displayName: null,
+  email: null,
+  photoUrl: null,
+  isLoggedIn: false,
+};
 
 export const authSlice = createSlice({
   name: 'user',
@@ -41,7 +36,6 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(signIn.fulfilled, (_, action) => {
-      console.log('AUTH DATA: ', action.payload);
       const { accessToken, displayName, email, photoUrl } = action.payload;
       return {
         accessToken,

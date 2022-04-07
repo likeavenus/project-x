@@ -1,14 +1,11 @@
-import React, { createContext } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { signIn, registration } from './authSlice';
-
-const authContext = createContext();
+import { getAccessToken } from '../../utils';
 
 export const useAuth = () => {
-  const accessToken = useSelector((state) => state.user.accessToken);
+  const accessToken = getAccessToken();
   const dispatch = useDispatch();
-  console.log('useAuth accessToken: ', accessToken)
   return {
     accessToken,
     login(auth, email, password) {
@@ -19,9 +16,4 @@ export const useAuth = () => {
     },
     logout() {},
   };
-};
-
-export const AuthProvider = ({ children }) => {
-  const auth = useAuth();
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 };

@@ -1,11 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import { useNavigate } from 'react-router';
-import { useStore } from 'react-redux';
 
 import { useAuth } from './useAuth';
 import { AUTH_STATE, ERROR_CODES } from './constants';
@@ -18,9 +13,8 @@ export const Auth = () => {
   const [authState, setAuthState] = useState(AUTH_STATE.AUTHENTICATION);
   const navigate = useNavigate();
   const auth = getAuth();
-  const { login, registration, accessToken } = useAuth();
+  const { login, registration } = useAuth();
   const [error, setError] = useState(null);
-  // console.log(useStore().getState());
 
   const handleOnInputChange = useCallback((e) => {
     if (e.target.name === 'email') {
@@ -28,7 +22,7 @@ export const Auth = () => {
     }
     setPassword(e.target.value);
   }, []);
-  console.log('auth accessToken: ', accessToken)
+
   const handleOnSubmit = useCallback(() => {
     if (email.length > 2 && password.length > 2) {
       if (authState === AUTH_STATE.REGISTRATION) {
@@ -46,11 +40,8 @@ export const Auth = () => {
         login(auth, email, password)
           .then((userCredential) => {
             if (!userCredential.error) {
-              console.log('userCredential: ', userCredential)
               setError(null);
               navigate('/editor');
-              // TODO: CHE ZA HUETA
-              console.log('accessToken: ', accessToken)
             } else {
               if (userCredential.error.code === ERROR_CODES.NOT_FOUND) {
                 setError({
@@ -63,7 +54,7 @@ export const Auth = () => {
           .catch((err) => console.error(err));
       }
     }
-  }, [accessToken, auth, authState, email, login, navigate, password, registration]);
+  }, [auth, authState, email, login, navigate, password, registration]);
 
   const handleChangeAuthState = useCallback(
     (newState) => () => {

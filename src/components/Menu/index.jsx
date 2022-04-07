@@ -8,6 +8,7 @@ import React, {
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from 'react-redux';
+import { signOut, getAuth } from 'firebase/auth';
 
 import styles from './style.module';
 import SmartPhone from '../../assets/phone.svg';
@@ -18,6 +19,7 @@ import { Messenger } from '../Messenger';
 import { fetchMessages } from '../Messenger/messengerSlice';
 
 export const Menu = () => {
+  const auth = getAuth();
   const menu = useSelector(state => state.menu.value);
   const dispatch = useDispatch();
 
@@ -90,6 +92,10 @@ export const Menu = () => {
 
   const memoizedMessages = useMemo(() => messengerData.messages, [messengerData.messages]);
 
+  const onSignOut = useCallback(() => {
+    signOut(auth);
+  }, [auth]);
+
   return (
     <>
       <div onClick={closeMenu} className={menuClass}></div>
@@ -124,6 +130,7 @@ export const Menu = () => {
                 </div>
               )}
             </button>
+            <button className={styles.phone__app} onClick={onSignOut}>Exit</button>
           </div>
         </div>
       </div>
