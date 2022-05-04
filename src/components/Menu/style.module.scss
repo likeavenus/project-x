@@ -127,6 +127,10 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 
   & svg {
     border-radius: 8px;
@@ -134,9 +138,7 @@
   }
 
   &:hover {
-    & svg {
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-    }
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
   }
 }
 
@@ -152,4 +154,8 @@
   position: absolute;
   right: -3px;
   top: -3px;
+}
+
+.phone_app_profile {
+  padding: 3px;
 }

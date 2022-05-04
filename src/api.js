@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { collection, getDocs, getFirestore, setDoc, doc } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 import 'regenerator-runtime/runtime.js';
 
 const firebaseConfig = {
@@ -14,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
+export const storage = getStorage(app);
 
 export const getTasks = async () => {
   const data = [];

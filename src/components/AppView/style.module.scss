@@ -1,0 +1,67 @@
+@import "../../variables.scss";
+
+.app__view {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(-34%, 43%) scale(0);
+    background: #fff;
+    border-radius: 23px;
+    transition: all 0.22s ease;
+    z-index: -10;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+  
+    &.active {
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      transform: translate(0%, 0%) scale(1);
+    }
+  
+    &.done {
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      transform: translate(0%, 0%) scale(1);
+    }
+  
+    &.exit {
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      transform: translate(-34%, 43%) scale(0);
+    }
+  
+    &.exit__active {
+      transform: translate(-34%, 43%) scale(0);
+      z-index: -10;
+    }
+  }
+
+  .app__close {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 10px 0;
+  
+    &:hover {
+      & span {
+        background-color: rgb(216, 215, 215);
+      }
+    }
+  
+    & span {
+      display: block;
+      background-color: gray;
+      height: 3px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+  }

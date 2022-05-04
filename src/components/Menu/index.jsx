@@ -5,25 +5,27 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut, getAuth } from 'firebase/auth';
 
 import styles from './style.module';
 import SmartPhone from '../../assets/phone.svg';
-import MessagesApp from '../../assets/messages-ios.svg';
+import ProfileSvg from '../../assets/profile.svg';
+import MessagesSvg from '../../assets/messages-ios.svg';
 import { TIME_FORMAT, APPS, ESCAPE_KEY } from './constants';
 import { toggle, close } from './menuSlice';
 import { Messenger } from '../Messenger';
+import { Profile } from '../Profile';
 import { fetchMessages } from '../Messenger/messengerSlice';
+import { AppView } from '../AppView';
+
 
 export const Menu = () => {
   const auth = getAuth();
   const menu = useSelector(state => state.menu.value);
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
   const toggleMenu = useCallback(() => {
     dispatch(toggle());
   }, [dispatch]);
@@ -32,12 +34,6 @@ export const Menu = () => {
     dispatch(close());
   }, [dispatch]);
 
-  // const openIntro = useCallback(() => {
-  //   localStorage.setItem("isFirstTime", true);
-  //   closeMenu();
-  //   navigate("/");
-  // }, [closeMenu, navigate]);
-
   const menuClass = menu ? `${styles.menu} ${styles.active}` : styles.menu;
   const phoneClass = menu ? `${styles.phone} ${styles.active}` : styles.phone;
 
@@ -45,6 +41,7 @@ export const Menu = () => {
   const [time, setTime] = useState(currentTime);
 
   const [currentApp, setCurrentApp] = useState(null);
+  console.log('currentApp: ', currentApp)
 
   const openApp = useCallback(
     (app) => () => {
@@ -79,7 +76,7 @@ export const Menu = () => {
   const messengerData = useSelector((state) => state.messenger);
 
   useEffect(() => {
-      dispatch(fetchMessages())
+    dispatch(fetchMessages())
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -96,6 +93,18 @@ export const Menu = () => {
     signOut(auth);
   }, [auth]);
 
+  const getApp = useCallback(() => {
+    switch (currentApp) {
+      case 'messenger':
+        return <Messenger
+          messages={memoizedMessages}
+        />
+      case 'profile':
+        return <Profile />
+      default: <></>;
+    }
+  }, [currentApp, memoizedMessages]);
+
   return (
     <>
       <div onClick={closeMenu} className={menuClass}></div>
@@ -104,11 +113,9 @@ export const Menu = () => {
       </button>
       <div className={phoneClass}>
         <div className={styles.phone__wrap}>
-          <Messenger
-            currentApp={currentApp}
-            messages={memoizedMessages}
-            closeApp={closeApp}
-          />
+          <AppView currentApp={currentApp} closeApp={closeApp}>
+            {getApp()}
+          </AppView>
           <div
             className={
               currentApp
@@ -121,14 +128,17 @@ export const Menu = () => {
           <div className={styles.app_panel}>
             <button
               onClick={openApp(APPS[0].app)}
-              className={`${styles.phone__app}`}
+              className={styles.phone__app}
             >
-              <MessagesApp />
+              <MessagesSvg />
               {!!unreadMessages.length && (
                 <div className={styles.app__notification}>
                   {unreadMessages.length}
                 </div>
               )}
+            </button>
+            <button onClick={openApp(APPS[1].app)} className={`${styles.phone__app} ${styles.phone_app_profile}`}>
+              <ProfileSvg />
             </button>
             <button className={styles.phone__app} onClick={onSignOut}>Exit</button>
           </div>

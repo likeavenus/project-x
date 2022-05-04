@@ -8,8 +8,8 @@ import { AUTH_STATE, ERROR_CODES } from './constants';
 import styles from './style.module';
 
 export const Auth = () => {
-  const [email, setEmail] = useState('rafael@list.ru');
-  const [password, setPassword] = useState('rafael7');
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [authState, setAuthState] = useState(AUTH_STATE.AUTHENTICATION);
   const navigate = useNavigate();
   const auth = getAuth();
